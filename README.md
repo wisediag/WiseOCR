@@ -48,7 +48,7 @@ pip install -r requirements.txt
 ## 🔑 API Key Setup (Required)
 
 **Get your API key:**
-👉 [https://chat.wisediag.com/apiKeyManage](https://chat.wisediag.com/apiKeyManage)
+👉 [https://console.wisediag.com/apiKeyManage](https://console.wisediag.com/apiKeyManage)
 
 **Set the environment variable:**
 
@@ -124,7 +124,7 @@ If nothing is returned, re-set the API key following the instructions above.
 
 **"Authentication failed" error:**
 
-Your API key may be invalid or expired. Visit [https://chat.wisediag.com/apiKeyManage](https://chat.wisediag.com/apiKeyManage) to check or regenerate your key.
+Your API key may be invalid or expired. Visit [https://console.wisediag.com/apiKeyManage](https://console.wisediag.com/apiKeyManage) to check or regenerate your key.
 
 **Low quality OCR results:**
 
