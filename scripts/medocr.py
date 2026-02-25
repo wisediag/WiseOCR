@@ -142,7 +142,7 @@ def _upload_with_retry(endpoint, input_path, headers, params, max_retries=MAX_RE
     return None
 
 
-def process_pdf(input_path, output_dir=None, service_url=DEFAULT_SERVICE_URL, dpi=DEFAULT_DPI):
+def process_pdf(input_path, output_dir=None, service_url=DEFAULT_SERVICE_URL, dpi=DEFAULT_DPI, name=None):
     """Process a PDF file via the WiseDiag MedOcr API."""
     input_path = Path(input_path)
 
@@ -189,9 +189,10 @@ def process_pdf(input_path, output_dir=None, service_url=DEFAULT_SERVICE_URL, dp
               f"ocr_pic_size={usage.get('ocr_pic_size')}, "
               f"total_tokens={usage.get('total_tokens')}")
 
-    # Save combined markdown — use input PDF filename
+    # Save combined markdown — use original filename if provided, else input PDF filename
     markdown = data.get("markdown", "")
-    output_path = output_dir / f"{input_path.stem}.md"
+    stem = name if name else input_path.stem
+    output_path = output_dir / f"{stem}.md"
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(markdown)
     print(f"[+] Markdown saved: {output_path}")
@@ -216,6 +217,11 @@ def main():
         default=DEFAULT_DPI,
         help=f"PDF rendering DPI (default: {DEFAULT_DPI})",
     )
+    parser.add_argument(
+        "-n", "--name",
+        help="Original filename (without extension) for the output file. "
+             "Use this when the input file has been renamed (e.g. by OpenClaw).",
+    )
 
     args = parser.parse_args()
 
@@ -227,7 +233,7 @@ def main():
         print(f"[!] Only PDF files are supported: {args.input}")
         return
 
-    process_pdf(args.input, args.output, args.service_url, args.dpi)
+    process_pdf(args.input, args.output, args.service_url, args.dpi, args.name)
 
 
 if __name__ == "__main__":
