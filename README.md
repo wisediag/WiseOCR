@@ -28,7 +28,6 @@ This tool **uploads your file to WiseDiag's cloud servers** for OCR processing.
 |----------|---------|
 | Identity | ID card numbers, passport numbers, driver's license numbers |
 | Financial | Bank account numbers, credit card numbers, tax IDs |
-| Medical | Medical records, diagnoses, prescriptions, health insurance info |
 | Biometric | Fingerprints, facial recognition data, voiceprints |
 | Credentials | Passwords, PINs, security question answers |
 | Personal contact | Home address, personal phone number, personal email |
@@ -123,7 +122,6 @@ Files are sent to WiseDiag's OCR API for processing and are not permanently stor
 ### ⚠️ Do NOT upload documents containing personal sensitive information, including but not limited to:
 - **Identity information**: ID card numbers, passport numbers, driver's license numbers
 - **Financial information**: Bank account/card numbers, credit card numbers, tax IDs, financial statements
-- **Medical & health information**: Medical records, diagnoses, prescriptions, health insurance information
 - **Biometric data**: Fingerprints, facial images, iris scans, voiceprints
 - **Account credentials**: Passwords, PINs, security question answers, private keys
 - **Personal contact details**: Home address, personal phone number, personal email
